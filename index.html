@@ -143,9 +143,8 @@
             padding: 5px 10px;
             cursor: pointer;
         }
-        .chordisle-cards .card .details {
+        .chordisle-cards .card div {
             margin-top: 10px;
-            display: none;
         }
     </style>
 </head>
@@ -250,4 +249,59 @@
                 <h3>生命激活</h3>
                 <p>个人潜能开发：示例 - 日常练习列表。</p>
                 <ol>
-                    <li>步骤1：冥
+                    <li>步骤1：冥想练习</li>
+                    <li>步骤2：目标设定</li>
+                    <!-- 加更多步骤 -->
+                </ol>
+            </div>
+        </div>
+    </section>
+    
+    <section id="chordisle">
+        <h2>Chordisle：创意岛</h2>
+        <p>集结创意项目展示。</p>
+        <div class="chordisle-cards">
+            <div class="card">
+                <h3>虚拟IP元宇宙</h3>
+                <p>理念项目展示：示例 - 元宇宙概念图。</p>
+                <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">展开详情</button>
+                <div style="display:none;">更多描述...</div>
+            </div>
+            <div class="card">
+                <h3>华藏道场</h3>
+                <p>另一个重要理念项目：描述...</p>
+                <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">展开详情</button>
+                <div style="display:none;">更多描述...</div>
+            </div>
+            <div class="card">
+                <h3>想象流</h3>
+                <p>其他创意集合：示例 - 脑洞列表。</p>
+                <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">展开详情</button>
+                <div style="display:none;">更多描述...</div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2025 Nebure。实验性开发中，由Grok辅助。</p>
+    </footer>
+
+    <script>
+        // 简单JS：平滑滚动到锚点
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        // Focus淡入动画
+        const focusCards = document.querySelectorAll('#focus .card');
+        focusCards.forEach((card, idx) => {
+            card.style.opacity = 0;
+            setTimeout(() => { card.style.opacity = 1; card.style.transition = 'opacity 0.5s'; }, idx * 200);
+        });
+    </script>
+</body>
+</html>
