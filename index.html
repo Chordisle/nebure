@@ -62,6 +62,57 @@
             transform: translateY(-5px);
             transition: transform 0.3s;
         }
+        /* Focus 布局 */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-3px); /* 实验互动：hover抬升 */
+        }
+        /* Quest 布局 */
+        .accordion details {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+        /* Arting 布局 */
+        .arting-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .item {
+            flex: 1 1 300px;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #eee;
+        }
+        /* Nebure 布局 */
+        .nebure-flex {
+            display: flex;
+            gap: 20px;
+        }
+        .nebure-flex > div {
+            flex: 1;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+        /* Chordisle 用 .card (已定义) */
     </style>
 </head>
 <body>
@@ -81,92 +132,10 @@
     <section id="focus">
         <h2>Focus：个人主页 - 即时动态记录</h2>
         <p>这里记录我个人的即时动态，作为灵活平台的核心。</p>
-        <h3>灵感集</h3>
-        <ul>
-            <li>日常散乱灵感记录</li>
-            <li>酝酿中的灵感</li>
-            <li>灵感迭代过程</li>
-        </ul>
-        <!-- 加你的内容，例如： <p>示例：今天闪现了一个关于AI的idea...</p> -->
-        
-        <h3>日常纪事</h3>
-        <ul>
-            <li>情绪、心情感记录</li>
-            <li>场景、信息、音乐、视频</li>
-            <li>闪过的疑问、生活矛盾点</li>
-        </ul>
-        
-        <h3>日常表达</h3>
-        <ul>
-            <li>新增兴趣</li>
-            <li>表达形式：文字、图像、诗等</li>
-            <li>创意构想、音乐氛围</li>
-        </ul>
-        
-        <h3>里程碑</h3>
-        <ul>
-            <li>生活重要进程</li>
-            <li>突破点、转变期</li>
-            <li>新征程记录</li>
-        </ul>
-    </section>
-    
-    <section id="quest">
-        <h2>Quest：现象研究与自我理论构建</h2>
-        <p>探索现象，构建个人理论系统。</p>
-        <h3>课题研究</h3>
-        <p>不同课题组，以文章或视频形式输出。</p>
-        <!-- 示例： <a href="link-to-article">课题1：现象分析</a> -->
-        
-        <h3>理论系统构建</h3>
-        <p>日常视频和文章输出。</p>
-        
-        <h3>现象观察</h3>
-        <p>对现象的持续跟踪记录。</p>
-    </section>
-    
-    <section id="arting">
-        <h2>Arting：生活美学传递</h2>
-        <p>以视频、文章、音乐、诗等形式呈现对生活的理解和活法。</p>
-        <!-- 示例： <iframe src="youtube-video-link" width="560" height="315"></iframe> -->
-    </section>
-    
-    <section id="nebure">
-        <h2>Nebure：超级个体与生命激活</h2>
-        <h3>超级个体</h3>
-        <p>我的商业模式。</p>
-        
-        <h3>生命激活</h3>
-        <p>个人潜能开发。（注：基于你的描述“生活激活”，但上下文像是“生命激活”；如果不对，告诉我改）</p>
-    </section>
-    
-    <section id="chordisle">
-        <h2>Chordisle：创意岛</h2>
-        <p>集结创意项目展示。</p>
-        <h3>虚拟IP元宇宙</h3>
-        <p>理念项目展示。</p>
-        
-        <h3>华藏道场</h3>
-        <p>另一个重要理念项目。</p>
-        
-        <h3>想象流</h3>
-        <p>其他创意集合。</p>
-    </section>
-    
-    <footer>
-        <p>© 2025 Nebure。实验性开发中，由Grok辅助。</p>
-    </footer>
-
-    <script>
-        // 简单JS：平滑滚动到锚点
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+        <div class="focus-grid"> <!-- 实验布局：网格卡片 -->
+            <div class="card">
+                <h3>灵感集</h3>
+                <ul>
+                    <li>日常散乱灵感记录：示例 - 今天闪现了一个关于元宇宙的idea。</li>
+                    <li>酝酿中的灵感：示例 - 正在迭代一个诗集概念。</li>
+                    <li>灵感
