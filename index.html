@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nebure</title>
+    <title>Nebure的个人网站</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,36 +29,26 @@
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+            transition: background-color 0.3s;
         }
         nav a:hover {
             background-color: #ddd;
             color: black;
         }
         section {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 20px auto;
             padding: 20px;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        h2, h3 {
+            color: #4CAF50;
         }
-        .gallery-item {
-            margin: 10px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item img {
-            width: 200px;
-            height: auto;
-            border-radius: 8px;
-        }
-        .gallery-item:hover {
-            transform: scale(1.1); /* 实验互动：hover放大 */
+        ul {
+            list-style-type: disc;
+            padding-left: 20px;
         }
         footer {
             text-align: center;
@@ -67,52 +57,116 @@
             color: white;
             margin-top: 20px;
         }
+        /* 实验样式：hover动画 */
+        section:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>欢迎来到[nebure]的个人网站</h1>
-        <p>一个实验性展出空间，由Grok辅助构建</p>
+        <h1>欢迎来到Nebure的个人网站</h1>
+        <p>一个以个人为基点的实验性平台，初期内容少，后期扩展成综合个人云平台。由Grok辅助构建。</p>
     </header>
     
     <nav>
-        <a href="#about">关于我</a>
-        <a href="#gallery">展出页面</a>
-        <a href="#contact">联系我</a>
+        <a href="#focus">Focus</a>
+        <a href="#quest">Quest</a>
+        <a href="#arting">Arting</a>
+        <a href="#nebure">Nebure</a>
+        <a href="#chordisle">Chordisle</a>
     </nav>
     
-    <section id="about">
-        <h2>关于我</h2>
-        <p>我是[你的名字]，一个[你的职业/兴趣]。这里分享我的经历和实验作品。</p>
+    <section id="focus">
+        <h2>Focus：个人主页 - 即时动态记录</h2>
+        <p>这里记录我个人的即时动态，作为灵活平台的核心。</p>
+        <h3>灵感集</h3>
+        <ul>
+            <li>日常散乱灵感记录</li>
+            <li>酝酿中的灵感</li>
+            <li>灵感迭代过程</li>
+        </ul>
+        <!-- 加你的内容，例如： <p>示例：今天闪现了一个关于AI的idea...</p> -->
+        
+        <h3>日常纪事</h3>
+        <ul>
+            <li>情绪、心情感记录</li>
+            <li>场景、信息、音乐、视频</li>
+            <li>闪过的疑问、生活矛盾点</li>
+        </ul>
+        
+        <h3>日常表达</h3>
+        <ul>
+            <li>新增兴趣</li>
+            <li>表达形式：文字、图像、诗等</li>
+            <li>创意构想、音乐氛围</li>
+        </ul>
+        
+        <h3>里程碑</h3>
+        <ul>
+            <li>生活重要进程</li>
+            <li>突破点、转变期</li>
+            <li>新征程记录</li>
+        </ul>
     </section>
     
-    <section id="gallery">
-        <h2>实验展出页面</h2>
-        <p>这是一个互动画廊：hover图片放大，点击弹出详情。</p>
-        <div class="gallery">
-            <div class="gallery-item" onclick="alert('展出1详情：这是一个示例图片！')">
-                <img src="https://via.placeholder.com/200x150?text=展出1" alt="展出1">
-            </div>
-            <div class="gallery-item" onclick="alert('展出2详情：另一个实验作品。')">
-                <img src="https://via.placeholder.com/200x150?text=展出2" alt="展出2">
-            </div>
-            <!-- 你可以加更多：复制<div class="gallery-item">...</div> -->
-        </div>
+    <section id="quest">
+        <h2>Quest：现象研究与自我理论构建</h2>
+        <p>探索现象，构建个人理论系统。</p>
+        <h3>课题研究</h3>
+        <p>不同课题组，以文章或视频形式输出。</p>
+        <!-- 示例： <a href="link-to-article">课题1：现象分析</a> -->
+        
+        <h3>理论系统构建</h3>
+        <p>日常视频和文章输出。</p>
+        
+        <h3>现象观察</h3>
+        <p>对现象的持续跟踪记录。</p>
     </section>
     
-    <section id="contact">
-        <h2>联系我</h2>
-        <p>邮箱: [你的邮箱]</p>
-        <button onclick="alert('消息发送成功！（模拟）')">发送消息</button>
+    <section id="arting">
+        <h2>Arting：生活美学传递</h2>
+        <p>以视频、文章、音乐、诗等形式呈现对生活的理解和活法。</p>
+        <!-- 示例： <iframe src="youtube-video-link" width="560" height="315"></iframe> -->
+    </section>
+    
+    <section id="nebure">
+        <h2>Nebure：超级个体与生命激活</h2>
+        <h3>超级个体</h3>
+        <p>我的商业模式。</p>
+        
+        <h3>生命激活</h3>
+        <p>个人潜能开发。（注：基于你的描述“生活激活”，但上下文像是“生命激活”；如果不对，告诉我改）</p>
+    </section>
+    
+    <section id="chordisle">
+        <h2>Chordisle：创意岛</h2>
+        <p>集结创意项目展示。</p>
+        <h3>虚拟IP元宇宙</h3>
+        <p>理念项目展示。</p>
+        
+        <h3>华藏道场</h3>
+        <p>另一个重要理念项目。</p>
+        
+        <h3>想象流</h3>
+        <p>其他创意集合。</p>
     </section>
     
     <footer>
-        <p>© 2025 [你的名字]。使用Grok构建。</p>
+        <p>© 2025 Nebure。实验性开发中，由Grok辅助。</p>
     </footer>
 
     <script>
-        // 简单JS：目前用于点击弹出，但可以扩展更多实验互动
-        console.log('网站加载完成！');
+        // 简单JS：平滑滚动到锚点
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
