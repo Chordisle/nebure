@@ -63,10 +63,16 @@
             transition: transform 0.3s;
         }
         /* Focus 布局 */
-        .focus-grid {
+        .focus-timeline {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
             gap: 20px;
+        }
+        .card[data-date]::before {
+            content: attr(data-date);
+            display: block;
+            font-size: 0.8em;
+            color: gray;
         }
         .card {
             background-color: #f9f9f9;
@@ -84,10 +90,14 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 10px;
+            transition: background-color 0.3s;
         }
         summary {
             cursor: pointer;
             font-weight: bold;
+        }
+        details[open] {
+            background-color: #f9f9f9;
         }
         /* Arting 布局 */
         .arting-gallery {
@@ -100,159 +110,7 @@
             background: #fff;
             padding: 10px;
             border: 1px solid #eee;
+            transition: transform 0.3s;
         }
-        /* Nebure 布局 */
-        .nebure-flex {
-            display: flex;
-            gap: 20px;
-        }
-        .nebure-flex > div {
-            flex: 1;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-        /* Chordisle 用 .card (已定义) */
-    </style>
-</head>
-<body>
-    <header>
-        <h1>欢迎来到Nebure的个人网站</h1>
-        <p>一个以个人为基点的实验性平台，初期内容少，后期扩展成综合个人云平台。由Grok辅助构建。</p>
-    </header>
-    
-    <nav>
-        <a href="#focus">Focus</a>
-        <a href="#quest">Quest</a>
-        <a href="#arting">Arting</a>
-        <a href="#nebure">Nebure</a>
-        <a href="#chordisle">Chordisle</a>
-    </nav>
-    
-    <section id="focus">
-        <h2>Focus：个人主页 - 即时动态记录</h2>
-        <p>这里记录我个人的即时动态，作为灵活平台的核心。</p>
-        <div class="focus-grid"> <!-- 实验布局：网格卡片 -->
-            <div class="card">
-                <h3>灵感集</h3>
-                <ul>
-                    <li>日常散乱灵感记录：示例 - 今天闪现了一个关于元宇宙的idea。</li>
-                    <li>酝酿中的灵感：示例 - 正在迭代一个诗集概念。</li>
-                    <li>灵感迭代过程：示例 - 从初稿到最终版的变化。</li>
-                </ul>
-                <!-- 加你的真实内容，或后期用JS动态加载 -->
-            </div>
-            <div class="card">
-                <h3>日常纪事</h3>
-                <ul>
-                    <li>情绪、心情感记录：示例 - 今天心情平静，听了首歌触动。</li>
-                    <li>场景、信息、音乐、视频：示例 - 街头看到的矛盾场景。</li>
-                    <li>闪过的疑问、生活矛盾点：示例 - 为什么时间总觉得不够？</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>日常表达</h3>
-                <ul>
-                    <li>新增兴趣：示例 - 最近迷上数字艺术。</li>
-                    <li>表达形式：文字、图像、诗等：示例 - 一首短诗：...</li>
-                    <li>创意构想、音乐氛围：示例 - 构想一个音乐playlist。</li>
-                </ul>
-            </div>
-            <div class="card">
-                <h3>里程碑</h3>
-                <ul>
-                    <li>生活重要进程：示例 - 完成第一个项目。</li>
-                    <li>突破点、转变期：示例 - 职业转变的时刻。</li>
-                    <li>新征程记录：示例 - 开始探索新领域。</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    <section id="quest">
-        <h2>Quest：现象研究与自我理论构建</h2>
-        <p>探索现象，构建个人理论系统。</p>
-        <div class="accordion"> <!-- 实验布局：可折叠 -->
-            <details>
-                <summary><h3>课题研究</h3></summary>
-                <p>不同课题组，以文章或视频形式输出。示例课题：现象A的分析。</p>
-                <!-- 加链接： <a href="your-article-link">阅读文章</a> 或 <iframe src="youtube-video" width="560" height="315"></iframe> -->
-            </details>
-            <details>
-                <summary><h3>理论系统构建</h3></summary>
-                <p>日常视频和文章输出。示例：我的核心理论框架。</p>
-            </details>
-            <details>
-                <summary><h3>现象观察</h3></summary>
-                <p>对现象的持续跟踪记录。示例：观察日志1。</p>
-            </details>
-        </div>
-    </section>
-    
-    <section id="arting">
-        <h2>Arting：生活美学传递</h2>
-        <p>以视频、文章、音乐、诗等形式呈现对生活的理解和活法。</p>
-        <div class="arting-gallery">
-            <div class="item">
-                <h3>示例视频</h3>
-                <!-- <iframe src="https://www.youtube.com/embed/your-video-id" width="300" height="200"></iframe> -->
-                <p>占位：生活理解视频。</p>
-            </div>
-            <div class="item">
-                <h3>示例诗</h3>
-                <p>诗行1...<br>诗行2...</p>
-            </div>
-            <!-- 加更多item -->
-        </div>
-    </section>
-    
-    <section id="nebure">
-        <h2>Nebure：超级个体与生命激活</h2>
-        <div class="nebure-flex"> <!-- 实验布局：两列 -->
-            <div>
-                <h3>超级个体</h3>
-                <p>我的商业模式：示例 - 个人品牌构建策略。</p>
-            </div>
-            <div>
-                <h3>生命激活</h3>
-                <p>个人潜能开发：示例 - 日常练习列表。</p>
-            </div>
-        </div>
-    </section>
-    
-    <section id="chordisle">
-        <h2>Chordisle：创意岛</h2>
-        <p>集结创意项目展示。</p>
-        <div class="chordisle-cards">
-            <div class="card">
-                <h3>虚拟IP元宇宙</h3>
-                <p>理念项目展示：示例 - 元宇宙概念图。</p>
-            </div>
-            <div class="card">
-                <h3>华藏道场</h3>
-                <p>另一个重要理念项目：描述...</p>
-            </div>
-            <div class="card">
-                <h3>想象流</h3>
-                <p>其他创意集合：示例 - 脑洞列表。</p>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <p>© 2025 Nebure。实验性开发中，由Grok辅助。</p>
-    </footer>
-
-    <script>
-        // 简单JS：平滑滚动到锚点
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+        .item:hover {
+            transform: scale
