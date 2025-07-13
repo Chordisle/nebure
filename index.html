@@ -6,45 +6,56 @@
     <title>Nebure的个人网站</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
-            color: #333;
+            background-color: #121212; /* Dark mode 背景 */
+            color: #e0e0e0; /* 浅色文字 */
         }
         header {
-            background-color: #4CAF50;
+            background: linear-gradient(135deg, #4C1D95, #6D28D9); /* 蓝紫渐变辉光 */
             color: white;
             text-align: center;
             padding: 40px 20px;
+            box-shadow: 0 4px 20px rgba(109, 40, 217, 0.5); /* Glow 阴影 */
         }
         nav {
-            background-color: #333;
+            background-color: #1e1e1e;
             overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         nav a {
             float: left;
             display: block;
-            color: white;
+            color: #e0e0e0;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
         nav a:hover {
-            background-color: #ddd;
-            color: black;
+            background-color: #333;
+            box-shadow: 0 0 10px #6D28D9; /* Hover glow */
+            color: white;
         }
         section {
             max-width: 1000px;
             margin: 20px auto;
             padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background: rgba(30, 30, 30, 0.8); /* Glassmorphism 半透明 */
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px); /* 玻璃模糊效果 */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(109, 40, 217, 0.3); /* Glow on hover */
         }
         h2, h3 {
-            color: #4CAF50;
+            color: #A78BFA; /* Bold 紫色排版 */
+            font-weight: bold;
         }
         ul {
             list-style-type: disc;
@@ -53,14 +64,9 @@
         footer {
             text-align: center;
             padding: 10px;
-            background-color: #333;
-            color: white;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
             margin-top: 20px;
-        }
-        /* 实验样式：hover动画 */
-        section:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s;
         }
         /* Focus 布局 */
         .focus-timeline {
@@ -72,32 +78,35 @@
             content: attr(data-date);
             display: block;
             font-size: 0.8em;
-            color: gray;
+            color: #9e9e9e;
         }
         .card {
-            background-color: #f9f9f9;
+            background: rgba(30, 30, 30, 0.9);
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         .card:hover {
-            transform: translateY(-3px); /* 实验互动：hover抬升 */
+            transform: translateY(-3px);
+            box-shadow: 0 4px 20px rgba(167, 139, 250, 0.4); /* Vivid glow */
         }
         /* Quest 布局 */
         .accordion details {
             margin-bottom: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 5px;
             padding: 10px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            background: rgba(30, 30, 30, 0.8);
         }
         summary {
             cursor: pointer;
             font-weight: bold;
         }
         details[open] {
-            background-color: #f9f9f9;
+            background: rgba(40, 40, 40, 0.8);
+            box-shadow: 0 0 10px #A78BFA;
         }
         /* Arting 布局 */
         .arting-gallery {
@@ -107,13 +116,14 @@
         }
         .item {
             flex: 1 1 300px;
-            background: #fff;
+            background: rgba(30, 30, 30, 0.9);
             padding: 10px;
-            border: 1px solid #eee;
-            transition: transform 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .item:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 15px #6D28D9;
         }
         /* Nebure 布局 */
         .nebure-flex {
@@ -123,7 +133,7 @@
         .nebure-flex > div {
             flex: 1;
             padding: 10px;
-            background: #f9f9f9;
+            background: rgba(30, 30, 30, 0.9);
             border-radius: 5px;
         }
         .nebure-flex ol {
@@ -137,14 +147,19 @@
             gap: 20px;
         }
         .chordisle-cards .card button {
-            background: #4CAF50;
+            background: linear-gradient(135deg, #4C1D95, #6D28D9);
             color: white;
             border: none;
             padding: 5px 10px;
             cursor: pointer;
+            transition: box-shadow 0.3s;
         }
-        .chordisle-cards .card div {
+        .chordisle-cards .card button:hover {
+            box-shadow: 0 0 10px #A78BFA;
+        }
+        .chordisle-cards .card .details {
             margin-top: 10px;
+            display: none;
         }
     </style>
 </head>
@@ -264,20 +279,20 @@
             <div class="card">
                 <h3>虚拟IP元宇宙</h3>
                 <p>理念项目展示：示例 - 元宇宙概念图。</p>
-                <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">展开详情</button>
-                <div style="display:none;">更多描述...</div>
+                <button class="toggle-btn">展开详情</button>
+                <div class="details">更多描述...</div>
             </div>
             <div class="card">
                 <h3>华藏道场</h3>
                 <p>另一个重要理念项目：描述...</p>
-                <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">展开详情</button>
-                <div style="display:none;">更多描述...</div>
+                <button class="toggle-btn">展开详情</button>
+                <div class="details">更多描述...</div>
             </div>
             <div class="card">
                 <h3>想象流</h3>
                 <p>其他创意集合：示例 - 脑洞列表。</p>
-                <button onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'block' ? 'none' : 'block';">展开详情</button>
-                <div style="display:none;">更多描述...</div>
+                <button class="toggle-btn">展开详情</button>
+                <div class="details">更多描述...</div>
             </div>
         </div>
     </section>
@@ -287,20 +302,38 @@
     </footer>
 
     <script>
-        // 简单JS：平滑滚动到锚点
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        document.addEventListener('DOMContentLoaded', function() {
+            // 平滑滚动到锚点
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 });
             });
-        });
-        // Focus淡入动画
-        const focusCards = document.querySelectorAll('#focus .card');
-        focusCards.forEach((card, idx) => {
-            card.style.opacity = 0;
-            setTimeout(() => { card.style.opacity = 1; card.style.transition = 'opacity 0.5s'; }, idx * 200);
+
+            // Focus淡入动画
+            const focusCards = document.querySelectorAll('#focus .card');
+            focusCards.forEach((card, idx) => {
+                card.style.opacity = '0';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s';
+                    card.style.opacity = '1';
+                }, idx * 200);
+            });
+
+            // Chordisle展开按钮
+            document.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const details = btn.nextElementSibling;
+                    if (details && details.classList.contains('details')) {
+                        details.style.display = details.style.display === 'block' ? 'none' : 'block';
+                    }
+                });
+            });
         });
     </script>
 </body>
