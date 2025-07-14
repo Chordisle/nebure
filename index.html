@@ -6,55 +6,50 @@
     <title>Nebure的个人网站</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Roboto', sans-serif; /* 简单现代字体，借鉴aeko清晰排版 */
             margin: 0;
             padding: 0;
-            background-color: #121212; /* Dark mode 背景 */
-            color: #e0e0e0; /* 浅色文字 */
+            background-color: #f5f5f5; /* 中性浅灰背景，清新可持续感 */
+            color: #333;
         }
         header {
-            background: linear-gradient(135deg, #4C1D95, #6D28D9); /* 蓝紫渐变辉光 */
-            color: white;
+            background-color: #e0f2f1; /* 浅绿accent，呼应aeko大地调 */
+            color: #004d40;
             text-align: center;
             padding: 40px 20px;
-            box-shadow: 0 4px 20px rgba(109, 40, 217, 0.5); /* Glow 阴影 */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         nav {
-            background-color: #1e1e1e;
+            background-color: #ffffff;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         nav a {
             float: left;
             display: block;
-            color: #e0e0e0;
+            color: #004d40;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
-            transition: background-color 0.3s, box-shadow 0.3s;
+            transition: background-color 0.3s;
         }
         nav a:hover {
-            background-color: #333;
-            box-shadow: 0 0 10px #6D28D9; /* Hover glow */
-            color: white;
+            background-color: #e0f2f1;
         }
         section {
             max-width: 1000px;
             margin: 20px auto;
             padding: 20px;
-            background: rgba(30, 30, 30, 0.8); /* Glassmorphism 半透明 */
-            border-radius: 12px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px); /* 玻璃模糊效果 */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s;
         }
         section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 40px rgba(109, 40, 217, 0.3); /* Glow on hover */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 轻微互动，借鉴aeko专业感 */
         }
         h2, h3 {
-            color: #A78BFA; /* Bold 紫色排版 */
+            color: #004d40; /* Bold绿排版 */
             font-weight: bold;
         }
         ul {
@@ -64,9 +59,10 @@
         footer {
             text-align: center;
             padding: 10px;
-            background-color: #1e1e1e;
-            color: #e0e0e0;
+            background-color: #ffffff;
+            color: #666;
             margin-top: 20px;
+            box-shadow: 0 -1px 3px rgba(0,0,0,0.1);
         }
         /* Focus 布局 */
         .focus-timeline {
@@ -78,35 +74,28 @@
             content: attr(data-date);
             display: block;
             font-size: 0.8em;
-            color: #9e9e9e;
+            color: #666;
         }
         .card {
-            background: rgba(30, 30, 30, 0.9);
+            background-color: #fafafa;
             padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            transition: box-shadow 0.2s;
         }
         .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 20px rgba(167, 139, 250, 0.4); /* Vivid glow */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         /* Quest 布局 */
         .accordion details {
             margin-bottom: 10px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid #eee;
             border-radius: 5px;
             padding: 10px;
-            transition: background-color 0.3s, box-shadow 0.3s;
-            background: rgba(30, 30, 30, 0.8);
         }
         summary {
             cursor: pointer;
             font-weight: bold;
-        }
-        details[open] {
-            background: rgba(40, 40, 40, 0.8);
-            box-shadow: 0 0 10px #A78BFA;
         }
         /* Arting 布局 */
         .arting-gallery {
@@ -116,14 +105,13 @@
         }
         .item {
             flex: 1 1 300px;
-            background: rgba(30, 30, 30, 0.9);
+            background: #fafafa;
             padding: 10px;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+            transition: box-shadow 0.3s;
         }
         .item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px #6D28D9;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         /* Nebure 布局 */
         .nebure-flex {
@@ -133,7 +121,7 @@
         .nebure-flex > div {
             flex: 1;
             padding: 10px;
-            background: rgba(30, 30, 30, 0.9);
+            background: #fafafa;
             border-radius: 5px;
         }
         .nebure-flex ol {
@@ -147,21 +135,22 @@
             gap: 20px;
         }
         .chordisle-cards .card button {
-            background: linear-gradient(135deg, #4C1D95, #6D28D9);
-            color: white;
+            background: #e0f2f1;
+            color: #004d40;
             border: none;
             padding: 5px 10px;
             cursor: pointer;
-            transition: box-shadow 0.3s;
+            transition: background-color 0.3s;
         }
         .chordisle-cards .card button:hover {
-            box-shadow: 0 0 10px #A78BFA;
+            background: #b2dfdb;
         }
         .chordisle-cards .card .details {
             margin-top: 10px;
             display: none;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Fonts for modern typography -->
 </head>
 <body>
     <header>
@@ -180,7 +169,7 @@
     <section id="focus">
         <h2>Focus：个人主页 - 即时动态记录</h2>
         <p>这里记录我个人的即时动态，作为灵活平台的核心。</p>
-        <div class="focus-timeline"> <!-- 实验展示：时间线网格 -->
+        <div class="focus-timeline">
             <div class="card" data-date="2025-07-13">
                 <h3>灵感集</h3>
                 <ul>
@@ -189,152 +178,18 @@
                     <li>灵感迭代过程：示例 - 从初稿到最终版的变化。</li>
                 </ul>
             </div>
-            <div class="card" data-date="2025-07-13">
-                <h3>日常纪事</h3>
-                <ul>
-                    <li>情绪、心情感记录：示例 - 今天心情平静，听了首歌触动。</li>
-                    <li>场景、信息、音乐、视频：示例 - 街头看到的矛盾场景。</li>
-                    <li>闪过的疑问、生活矛盾点：示例 - 为什么时间总觉得不够？</li>
-                </ul>
-            </div>
-            <div class="card" data-date="2025-07-13">
-                <h3>日常表达</h3>
-                <ul>
-                    <li>新增兴趣：示例 - 最近迷上数字艺术。</li>
-                    <li>表达形式：文字、图像、诗等：示例 - 一首短诗：...</li>
-                    <li>创意构想、音乐氛围：示例 - 构想一个音乐playlist。</li>
-                </ul>
-            </div>
-            <div class="card" data-date="2025-07-13">
-                <h3>里程碑</h3>
-                <ul>
-                    <li>生活重要进程：示例 - 完成第一个项目。</li>
-                    <li>突破点、转变期：示例 - 职业转变的时刻。</li>
-                    <li>新征程记录：示例 - 开始探索新领域。</li>
-                </ul>
-            </div>
+            <!-- 其他卡片类似 -->
         </div>
     </section>
     
-    <section id="quest">
-        <h2>Quest：现象研究与自我理论构建</h2>
-        <p>探索现象，构建个人理论系统。</p>
-        <div class="accordion"> <!-- 实验布局：可折叠 -->
-            <details>
-                <summary><h3>课题研究</h3></summary>
-                <p>不同课题组，以文章或视频形式输出。示例课题：现象A的分析。</p>
-                <!-- 加链接： <a href="your-article-link">阅读文章</a> 或 <iframe width="560" height="315" src="https://www.youtube.com/embed/video-id"></iframe> -->
-            </details>
-            <details>
-                <summary><h3>理论系统构建</h3></summary>
-                <p>日常视频和文章输出。示例：我的核心理论框架。</p>
-            </details>
-            <details>
-                <summary><h3>现象观察</h3></summary>
-                <p>对现象的持续跟踪记录。示例：观察日志1。</p>
-            </details>
-        </div>
-    </section>
-    
-    <section id="arting">
-        <h2>Arting：生活美学传递</h2>
-        <p>以视频、文章、音乐、诗等形式呈现对生活的理解和活法。</p>
-        <div class="arting-gallery">
-            <div class="item">
-                <h3>示例视频</h3>
-                <!-- <iframe src="https://www.youtube.com/embed/your-video-id" width="300" height="200"></iframe> -->
-                <p>占位：生活理解视频。</p>
-            </div>
-            <div class="item">
-                <h3>示例诗</h3>
-                <blockquote>诗行1...<br>诗行2...</blockquote>
-            </div>
-            <!-- 加更多item -->
-        </div>
-    </section>
-    
-    <section id="nebure">
-        <h2>Nebure：超级个体与生命激活</h2>
-        <div class="nebure-flex"> <!-- 实验布局：两列 -->
-            <div>
-                <h3>超级个体</h3>
-                <p>我的商业模式：示例 - 个人品牌构建策略。</p>
-            </div>
-            <div>
-                <h3>生命激活</h3>
-                <p>个人潜能开发：示例 - 日常练习列表。</p>
-                <ol>
-                    <li>步骤1：冥想练习</li>
-                    <li>步骤2：目标设定</li>
-                    <!-- 加更多步骤 -->
-                </ol>
-            </div>
-        </div>
-    </section>
-    
-    <section id="chordisle">
-        <h2>Chordisle：创意岛</h2>
-        <p>集结创意项目展示。</p>
-        <div class="chordisle-cards">
-            <div class="card">
-                <h3>虚拟IP元宇宙</h3>
-                <p>理念项目展示：示例 - 元宇宙概念图。</p>
-                <button class="toggle-btn">展开详情</button>
-                <div class="details">更多描述...</div>
-            </div>
-            <div class="card">
-                <h3>华藏道场</h3>
-                <p>另一个重要理念项目：描述...</p>
-                <button class="toggle-btn">展开详情</button>
-                <div class="details">更多描述...</div>
-            </div>
-            <div class="card">
-                <h3>想象流</h3>
-                <p>其他创意集合：示例 - 脑洞列表。</p>
-                <button class="toggle-btn">展开详情</button>
-                <div class="details">更多描述...</div>
-            </div>
-        </div>
-    </section>
-    
+    <!-- 其他板块代码保持不变，省略以简化；完整时复制你的原板块 -->
+
     <footer>
         <p>© 2025 Nebure。实验性开发中，由Grok辅助。</p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 平滑滚动到锚点
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const target = document.querySelector(targetId);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                });
-            });
-
-            // Focus淡入动画
-            const focusCards = document.querySelectorAll('#focus .card');
-            focusCards.forEach((card, idx) => {
-                card.style.opacity = '0';
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.5s';
-                    card.style.opacity = '1';
-                }, idx * 200);
-            });
-
-            // Chordisle展开按钮
-            document.querySelectorAll('.toggle-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const details = btn.nextElementSibling;
-                    if (details && details.classList.contains('details')) {
-                        details.style.display = details.style.display === 'block' ? 'none' : 'block';
-                    }
-                });
-            });
-        });
+        // JS保持不变
     </script>
 </body>
 </html>
