@@ -6,151 +6,92 @@
     <title>Nebure的个人网站</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif; /* 简单现代字体，借鉴aeko清晰排版 */
+            font-family: 'Roboto', sans-serif; /* 借鉴aeko的sans-serif清晰字体 */
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5; /* 中性浅灰背景，清新可持续感 */
-            color: #333;
+            background-color: #f7f7f7; /* 白灰背景，中性极简 */
+            color: #333333; /* 深灰文字，可读性强 */
+            line-height: 1.6; /* 宽行间距，借鉴排版舒适 */
         }
         header {
-            background-color: #e0f2f1; /* 浅绿accent，呼应aeko大地调 */
-            color: #004d40;
+            background-color: #ffffff; /* 白头，借鉴专业感 */
             text-align: center;
-            padding: 40px 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 60px 20px; /* 宽间距 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 轻微阴影 */
+        }
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700; /* Bold headings */
+            color: #000000;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #666666;
         }
         nav {
             background-color: #ffffff;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         nav a {
-            float: left;
-            display: block;
-            color: #004d40;
-            text-align: center;
-            padding: 14px 16px;
+            display: inline-block;
+            color: #333333;
             text-decoration: none;
-            transition: background-color 0.3s;
+            padding: 10px 20px;
+            transition: color 0.3s;
         }
         nav a:hover {
-            background-color: #e0f2f1;
+            color: #009688; /* 浅绿accent hover，借鉴强调色 */
         }
         section {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: box-shadow 0.3s;
+            max-width: 900px; /* 居中单列格局 */
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px; /* 圆角 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* 轻阴影卡片 */
         }
-        section:hover {
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* 轻微互动，借鉴aeko专业感 */
+        h2 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 20px;
         }
-        h2, h3 {
-            color: #004d40; /* Bold绿排版 */
-            font-weight: bold;
+        h3 {
+            font-size: 1.5em;
+            font-weight: 500;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+        p, li {
+            font-size: 1.1em;
+            color: #666666;
+            margin-bottom: 15px;
         }
         ul {
-            list-style-type: disc;
             padding-left: 20px;
+        }
+        .focus-timeline, .arting-gallery, .nebure-flex, .chordisle-cards {
+            display: grid; /* 网格布局，借鉴层次结构 */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px; /* 宽间距 */
+        }
+        .card, .item {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
         footer {
-            text-align: center;
-            padding: 10px;
             background-color: #ffffff;
-            color: #666;
-            margin-top: 20px;
-            box-shadow: 0 -1px 3px rgba(0,0,0,0.1);
-        }
-        /* Focus 布局 */
-        .focus-timeline {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        .card[data-date]::before {
-            content: attr(data-date);
-            display: block;
-            font-size: 0.8em;
-            color: #666;
-        }
-        .card {
-            background-color: #fafafa;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            transition: box-shadow 0.2s;
-        }
-        .card:hover {
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        /* Quest 布局 */
-        .accordion details {
-            margin-bottom: 10px;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            padding: 10px;
-        }
-        summary {
-            cursor: pointer;
-            font-weight: bold;
-        }
-        /* Arting 布局 */
-        .arting-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .item {
-            flex: 1 1 300px;
-            background: #fafafa;
-            padding: 10px;
-            border: 1px solid #eee;
-            transition: box-shadow 0.3s;
-        }
-        .item:hover {
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        /* Nebure 布局 */
-        .nebure-flex {
-            display: flex;
-            gap: 20px;
-        }
-        .nebure-flex > div {
-            flex: 1;
-            padding: 10px;
-            background: #fafafa;
-            border-radius: 5px;
-        }
-        .nebure-flex ol {
-            list-style-type: decimal;
-            padding-left: 20px;
-        }
-        /* Chordisle 布局 */
-        .chordisle-cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .chordisle-cards .card button {
-            background: #e0f2f1;
-            color: #004d40;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .chordisle-cards .card button:hover {
-            background: #b2dfdb;
-        }
-        .chordisle-cards .card .details {
-            margin-top: 10px;
-            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #666666;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> /* Roboto字体，借鉴现代sans-serif */
 </head>
 <body>
     <header>
@@ -166,30 +107,4 @@
         <a href="#chordisle">Chordisle</a>
     </nav>
     
-    <section id="focus">
-        <h2>Focus：个人主页 - 即时动态记录</h2>
-        <p>这里记录我个人的即时动态，作为灵活平台的核心。</p>
-        <div class="focus-timeline">
-            <div class="card" data-date="2025-07-13">
-                <h3>灵感集</h3>
-                <ul>
-                    <li>日常散乱灵感记录：示例 - 今天闪现了一个关于元宇宙的idea。</li>
-                    <li>酝酿中的灵感：示例 - 正在迭代一个诗集概念。</li>
-                    <li>灵感迭代过程：示例 - 从初稿到最终版的变化。</li>
-                </ul>
-            </div>
-            <!-- 其他卡片类似 -->
-        </div>
-    </section>
-    
-    <!-- 其他板块代码保持不变，省略以简化；完整时复制你的原板块 -->
-
-    <footer>
-        <p>© 2025 Nebure。实验性开发中，由Grok辅助。</p>
-    </footer>
-
-    <script>
-        // JS保持不变
-    </script>
-</body>
-</html>
+   
